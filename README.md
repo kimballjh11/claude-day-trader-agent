@@ -1,6 +1,6 @@
 # Claude Day Trader Agent
 
-Paper-first trading robot for a separate Robinhood Agentic account. Spec: [`TRADING_BOT_MASTER_SPEC.md`](TRADING_BOT_MASTER_SPEC.md).
+Autonomous equities agent on Claude scheduled runs + the official Robinhood Agentic Trading MCP, with deterministic Python for universe filters, momentum rank, sizing, stops, and a fail-closed order guard. Defaults to simulated paper books; the same pipeline places real orders once `execution.mode` is flipped to live and the agent account is funded. Spec: [`TRADING_BOT_MASTER_SPEC.md`](TRADING_BOT_MASTER_SPEC.md).
 
 **Disclaimer:** Experimental. Not financial advice. Public Claude trading tests have lost money. Small separate account only.
 
