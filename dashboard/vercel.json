@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "functions": {
+    "api/vote.js": { "includeFiles": "data/state.json" }
+  }
+}

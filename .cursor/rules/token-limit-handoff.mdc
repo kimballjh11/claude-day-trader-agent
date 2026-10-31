@@ -1,0 +1,50 @@
+---
+description: Finish neatly and write a handoff brief before context/token limits are exhausted so Claude Code can continue.
+alwaysApply: true
+---
+
+# Token / context limit handoff
+
+When you are approaching the usage or context limit (treat **~95%** as the trigger), stop starting new work. Finish the current unit cleanly and leave a handoff brief.
+
+## Before you stop
+
+1. **Stop expanding scope.** Do not begin a new milestone, file, or large refactor.
+2. **Land in a neat place:**
+   - Complete or cleanly revert half-finished edits (no broken syntax, no half-applied renames).
+   - Leave the tree buildable/testable for whatever was in progress, or clearly mark unfinished files.
+   - Prefer committing only if Operator already asked for a commit; otherwise leave a clean working tree description in the brief.
+3. **Do not improvise past the master spec.** If blocked, say so in the brief.
+
+## Handoff brief (required)
+
+Write or update a Markdown brief at:
+
+`docs/handoffs/HANDOFF_YYYY-MM-DD_HHMM.md`
+
+(Use America/Denver local time in the filename when known.)
+
+The brief must include:
+
+| Section | Contents |
+|---|---|
+| **Status** | One-line: what milestone/task was in progress and why you stopped (token/context limit). |
+| **Done** | Bullet list of what was completed and verified (tests run, files created). |
+| **In progress** | Exact file paths and what is unfinished; include line/region hints if useful. |
+| **Not started** | Remaining work for the current milestone only. |
+| **Repo state** | Branch, uncommitted files, last commit hash if any, whether anything was pushed. |
+| **Commands to run next** | Copy-pasteable next steps for Claude Code (e.g. `python3 -m unittest …`). |
+| **Open questions / blockers** | VERIFY items, missing Operator input, failed assumptions. |
+| **Spec pointers** | Section numbers in `TRADING_BOT_MASTER_SPEC.md` that govern the next work. |
+
+End the brief with:
+
+```text
+PICKUP: Start from "Not started" / "In progress". Do not redo "Done".
+```
+
+## After writing the brief
+
+Tell Operator the brief path in one short message. Do not continue building past the neat stopping point.
+
+**Claude Code pickup:** `CLAUDE.md` requires reading the newest file in `docs/handoffs/` before any other work after a stop.

@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-10-31T17:21:07.823895+00:00",
+  "mode": "paper",
+  "phase": 1,
+  "last_run": {
+    "run": "",
+    "started_at": "",
+    "finished_at": "",
+    "outcome": "ok"
+  },
+  "next_runs": [
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-02T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-02T15:30:00-07:00"
+    }
+  ],
+  "scheduled_runs": [
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-02T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-02T15:30:00-07:00"
+    },
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-03T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-03T15:30:00-07:00"
+    },
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-04T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-04T15:30:00-07:00"
+    },
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-05T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-05T15:30:00-07:00"
+    },
+    {
+      "run": "morning",
+      "scheduled_at": "2026-11-06T08:00:00-07:00"
+    },
+    {
+      "run": "evening",
+      "scheduled_at": "2026-11-06T15:30:00-07:00"
+    },
+    {
+      "run": "weekly",
+      "scheduled_at": "2026-11-06T16:30:00-07:00"
+    }
+  ],
+  "errors": [],
+  "schedule": {
+    "timezone": "America/Denver",
+    "phase_a_local_time": "15:30",
+    "phase_b_local_time": "08:00",
+    "weekly_review_local_time": "16:30",
+    "missed_run_grace_minutes": 60
+  },
+  "holidays": [
+    "2026-01-01",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-04-03",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-11-26",
+    "2026-12-25",
+    "2027-01-01",
+    "2027-01-18",
+    "2027-02-15",
+    "2027-03-26",
+    "2027-05-31",
+    "2027-06-18",
+    "2027-07-05",
+    "2027-09-06",
+    "2027-11-25",
+    "2027-12-24"
+  ],
+  "missed_run_grace_minutes": 60,
+  "books": {
+    "claude": {
+      "equity_usd": 1000.0,
+      "cash_settled_usd": 1000.0,
+      "cash_unsettled_usd": 0,
+      "day_pct": 0.0,
+      "week_pct": 0.0,
+      "since_inception_pct": 0.0,
+      "halted": false,
+      "halt_reason": null
+    },
+    "control": {
+      "equity_usd": 1000.0,
+      "cash_settled_usd": 1000.0,
+      "cash_unsettled_usd": 0,
+      "day_pct": 0.0,
+      "week_pct": 0.0,
+      "since_inception_pct": 0.0,
+      "halted": false,
+      "halt_reason": null
+    },
+    "spy": {
+      "equity_usd": 1000.0,
+      "since_inception_pct": 0.0
+    }
+  },
+  "equity_series": [
+    {
+      "date": "2026-01-01",
+      "run": "init",
+      "claude": 1000.0,
+      "control": 1000.0,
+      "spy": 1000.0
+    }
+  ],
+  "positions": [],
+  "sector_exposure": {
+    "claude": [],
+    "control": []
+  },
+  "decisions_today": [],
+  "votable_ids": [],
+  "max_positions_per_sector": 3,
+  "blocked": [],
+  "recent_trades": [],
+  "graduation": {
+    "trading_days": 1,
+    "calendar_months": 9.95,
+    "violations": 0,
+    "clean_runs_last_10": 0,
+    "lock_tests_passed_at": null,
+    "vote_coverage_pct": 0.0,
+    "items": [
+      {
+        "label": "\u2265 21 trading days",
+        "met": false,
+        "detail": "1 days"
+      },
+      {
+        "label": "\u2265 1 calendar month(s)",
+        "met": true,
+        "detail": "10.0 months"
+      },
+      {
+        "label": "Zero rule violations",
+        "met": true,
+        "detail": "0 violations"
+      },
+      {
+        "label": "Clean runs (last 10 trading days)",
+        "met": false,
+        "detail": "tracked after scheduled runs exist"
+      },
+      {
+        "label": "Lock tests passed (last 5 trading days)",
+        "met": false,
+        "detail": "see docs/ops.md"
+      },
+      {
+        "label": "Vote coverage \u2265 80%",
+        "met": false,
+        "detail": "0%"
+      },
+      {
+        "label": "Operator reviewed claude vs control vs SPY",
+        "met": false,
+        "detail": "manual"
+      },
+      {
+        "label": "Operator set mode=live by hand",
+        "met": false,
+        "detail": "mode=paper"
+      }
+    ]
+  },
+  "signal_attribution": [],
+  "unvoted_count": 0
+}

@@ -1,0 +1,169 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1a1d23;
+  --muted: #5c6570;
+  --line: #dde1e6;
+  --paper: #c47a12;
+  --live: #1a7f4b;
+  --err: #b42318;
+  --warn: #b54708;
+  --accent: #1f4e79;
+  --radius: 10px;
+  --font: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1218;
+    --surface: #171b22;
+    --text: #e8ecf1;
+    --muted: #9aa3ad;
+    --line: #2a313c;
+    --accent: #7eb6e8;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+a { color: var(--accent); }
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+.meta { color: var(--muted); font-size: 0.9rem; }
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  color: #fff;
+}
+.badge.paper { background: var(--paper); }
+.badge.live { background: var(--live); }
+main { padding: 1rem 1.5rem 3rem; max-width: 1100px; margin: 0 auto; }
+section { margin: 1.75rem 0; }
+section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+}
+.banner {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--line);
+}
+.banner.error { background: color-mix(in srgb, var(--err) 12%, var(--surface)); border-color: var(--err); }
+.banner.warning { background: color-mix(in srgb, var(--warn) 12%, var(--surface)); border-color: var(--warn); }
+.scorecards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+.tile h3 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.tile .eq { font-size: 1.45rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+.tile .pcts { color: var(--muted); font-size: 0.85rem; margin-top: 0.35rem; }
+.halt { color: var(--err); font-size: 0.8rem; font-weight: 600; }
+.chart-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+}
+.decision {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.decision h3 { margin: 0 0 0.4rem; }
+.decision dl {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.25rem 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 0.92rem;
+}
+.decision dt { color: var(--muted); }
+.factors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 0.88rem;
+  font-variant-numeric: tabular-nums;
+}
+.factors b { color: var(--muted); font-weight: 500; margin-right: 0.25rem; }
+.actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+button {
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); color: #fff; border-color: transparent; }
+button.active-agree { background: var(--live); color: #fff; }
+button.active-disagree { background: var(--err); color: #fff; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+}
+th { color: var(--muted); font-weight: 600; }
+.check { list-style: none; padding: 0; margin: 0; }
+.check li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 0.6rem;
+}
+.check .ok { color: var(--live); font-weight: 700; }
+.check .no { color: var(--muted); }
+.empty { color: var(--muted); font-style: italic; }
+
+@media (max-width: 700px) {
+  .scorecards { grid-template-columns: 1fr; }
+  header { padding: 1rem; }
+  main { padding: 1rem; }
+  .decision dl { grid-template-columns: 1fr; }
+}

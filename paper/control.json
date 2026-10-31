@@ -1,0 +1,16 @@
+{
+  "book": "control",
+  "starting_capital_usd": 1000.0,
+  "inception_date": "2026-01-01",
+  "cash_settled_usd": 1000.0,
+  "cash_unsettled": [],
+  "positions": [],
+  "closed_trades": [],
+  "equity_history": [
+    {
+      "date": "2026-01-01",
+      "run": "init",
+      "equity_usd": 1000.0
+    }
+  ]
+}

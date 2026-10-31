@@ -1,0 +1,91 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__robinhood-trading__get_accounts",
+      "mcp__robinhood-trading__get_portfolio",
+      "mcp__robinhood-trading__get_equity_positions",
+      "mcp__robinhood-trading__get_equity_quotes",
+      "mcp__robinhood-trading__get_equity_historicals",
+      "mcp__robinhood-trading__get_equity_fundamentals",
+      "mcp__robinhood-trading__get_equity_tradability",
+      "mcp__robinhood-trading__get_earnings_calendar",
+      "mcp__robinhood-trading__get_earnings_results",
+      "mcp__robinhood-trading__get_equity_orders",
+      "mcp__robinhood-trading__get_realized_pnl",
+      "mcp__robinhood-trading__get_pnl_trade_history",
+      "mcp__robinhood-trading__get_scans",
+      "mcp__robinhood-trading__run_scan",
+      "mcp__robinhood-trading__search",
+      "mcp__robinhood-trading__review_equity_order",
+      "mcp__claude_ai_robinhood-trading__get_accounts",
+      "mcp__claude_ai_robinhood-trading__get_portfolio",
+      "mcp__claude_ai_robinhood-trading__get_equity_positions",
+      "mcp__claude_ai_robinhood-trading__get_equity_quotes",
+      "mcp__claude_ai_robinhood-trading__get_equity_historicals",
+      "mcp__claude_ai_robinhood-trading__get_equity_fundamentals",
+      "mcp__claude_ai_robinhood-trading__get_equity_tradability",
+      "mcp__claude_ai_robinhood-trading__get_earnings_calendar",
+      "mcp__claude_ai_robinhood-trading__get_earnings_results",
+      "mcp__claude_ai_robinhood-trading__get_equity_orders",
+      "mcp__claude_ai_robinhood-trading__get_realized_pnl",
+      "mcp__claude_ai_robinhood-trading__get_pnl_trade_history",
+      "mcp__claude_ai_robinhood-trading__get_scans",
+      "mcp__claude_ai_robinhood-trading__run_scan",
+      "mcp__claude_ai_robinhood-trading__search",
+      "mcp__claude_ai_robinhood-trading__review_equity_order",
+      "WebSearch",
+      "WebFetch",
+      "Bash(python3 scripts/*)",
+      "Bash(python3 -m unittest*)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git pull --rebase origin main)",
+      "Bash(git push origin HEAD:main)"
+    ],
+    "deny": [
+      "mcp__robinhood-trading__place_equity_order",
+      "mcp__robinhood-trading__cancel_equity_order",
+      "mcp__robinhood-trading__place_option_order",
+      "mcp__robinhood-trading__cancel_option_order",
+      "mcp__robinhood-trading__review_option_order",
+      "mcp__robinhood-trading__place_crypto_order",
+      "mcp__robinhood-trading__cancel_crypto_order",
+      "mcp__robinhood-trading__exercise_option",
+      "mcp__claude_ai_robinhood-trading__place_equity_order",
+      "mcp__claude_ai_robinhood-trading__cancel_equity_order",
+      "mcp__claude_ai_robinhood-trading__place_option_order",
+      "mcp__claude_ai_robinhood-trading__cancel_option_order",
+      "mcp__claude_ai_robinhood-trading__review_option_order",
+      "mcp__claude_ai_robinhood-trading__place_crypto_order",
+      "mcp__claude_ai_robinhood-trading__cancel_crypto_order",
+      "mcp__claude_ai_robinhood-trading__exercise_option",
+      "Edit(risk_rules.json)",
+      "Write(risk_rules.json)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Edit(paper/**)",
+      "Write(paper/**)"
+    ],
+    "ask": [
+      "mcp__robinhood-trading__create_scan",
+      "mcp__robinhood-trading__update_watchlist",
+      "mcp__claude_ai_robinhood-trading__create_scan",
+      "mcp__claude_ai_robinhood-trading__update_watchlist"
+    ]
+  },
+  "enabledMcpjsonServers": ["robinhood-trading"],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*robinhood.*__place_.*|mcp__.*robinhood.*__cancel_.*|mcp__.*robinhood.*__exercise_.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/order_guard.py || { echo 'ORDER GUARD FAILED TO RUN: blocking' >&2; exit 2; }",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

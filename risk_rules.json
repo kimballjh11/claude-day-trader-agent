@@ -1,0 +1,192 @@
+{
+  "_comment": "Every hard limit. Claude never edits this file. Only the operator edits execution, autonomy, and kill_switch, by hand.",
+  "execution": {
+    "mode": "paper",
+    "allowed_modes": [
+      "paper",
+      "live"
+    ],
+    "paper_min_trading_days": 21,
+    "paper_min_calendar_months": 1,
+    "note": "Human only. In paper mode no real order is ever placed; fills are simulated by scripts/paper_broker.py."
+  },
+  "account": {
+    "starting_capital_usd": 1000,
+    "account_type": "cash",
+    "account_number_env_var": "RH_AGENT_ACCOUNT_NUMBER"
+  },
+  "autonomy": {
+    "phase": 1,
+    "note": "Human only. 1 = paper, 2 = live automatic (no per-order approval)."
+  },
+  "kill_switch": {
+    "enabled": false,
+    "note": "Disabled by the operator's decision. Slot reserved; not implemented."
+  },
+  "schedule": {
+    "timezone": "America/Denver",
+    "phase_a_local_time": "15:30",
+    "phase_b_local_time": "08:00",
+    "weekly_review_local_time": "16:30",
+    "missed_run_grace_minutes": 60
+  },
+  "universe": {
+    "include_sp500_any_size": true,
+    "other_us_stocks_min_market_cap_usd": 2000000000,
+    "other_us_stocks_max_market_cap_usd": 50000000000,
+    "allow_etfs": true,
+    "exclude_leveraged_etfs": true,
+    "exclude_inverse_etfs": true,
+    "exclude_volatility_products": true,
+    "exclude_etns": true,
+    "exclude_crypto_products": true,
+    "exclude_option_income_etfs": true,
+    "exclude_commodity_etfs": true,
+    "min_avg_daily_volume": 1000000,
+    "min_price_usd": 5.0,
+    "trend_filter_enabled": true,
+    "trend_filter_sma_days": 200,
+    "trend_filter_applies_to_holdings": false,
+    "history_calendar_days": 420,
+    "scan_stock_candidates_max": 40,
+    "scan_etf_candidates_max": 10,
+    "research_candidates_max": 10,
+    "momentum_stocks_scan_id": "56d14d04-5410-490b-a04f-8e8bdbc0cd14",
+    "momentum_etfs_scan_id": "a2f1e8b0-696a-4982-a226-d623e50ef4d1",
+    "momentum_scan_sort_note": "Custom 3M change column = price vs close 63 trading days ago (scanner has no built-in 3-month field)."
+  },
+  "signal_gate": {
+    "_new": "Momentum version. Replaces FriesTrader signal_thresholds.",
+    "price_move_60d_min_pct": 0.1,
+    "volume_spike_multiple": 2.0,
+    "volume_spike_requires_up_day": true,
+    "near_52wk_high_pct": 0.03,
+    "momentum_12_1_must_be_positive": true
+  },
+  "conviction_caps": {
+    "_new": true,
+    "etf_max_conviction": "medium",
+    "regime_caps": {
+      "Contraction": "medium",
+      "Inflationary": "medium"
+    },
+    "ahead_of_earnings_max_conviction": "medium",
+    "high_requires_catalyst_within_trading_days": 15
+  },
+  "cadence": {
+    "news_search_budget_per_cycle": 30
+  },
+  "position_sizing": {
+    "conviction_tiers": {
+      "high": 0.15,
+      "medium": 0.1,
+      "low": 0.05
+    },
+    "max_position_pct_of_account": 0.15,
+    "max_concurrent_positions": 5,
+    "min_cash_buffer_pct": 0.15,
+    "max_order_usd": 500,
+    "max_new_positions_per_session": 2,
+    "max_positions_per_sector": 3,
+    "min_order_usd": 5.0,
+    "min_top_up_usd": 5.0,
+    "min_top_up_pct_of_target": 0.1,
+    "size_from_settled_cash_only": true,
+    "note": "Tiers and caps live here only. Phase B must not hard-code conviction percentages."
+  },
+  "stop_loss": {
+    "mode": "volatility_scaled",
+    "volatility_lookback_trading_days": 20,
+    "volatility_stdev_multiplier": 2.5,
+    "min_stop_pct": 0.05,
+    "max_stop_pct": 0.12,
+    "fallback_stop_pct": 0.07,
+    "note": "volatility_scaled: stop_pct = clamp(multiplier * stdev of daily returns, min, max)."
+  },
+  "take_profit": {
+    "tiers": [
+      {
+        "gain_pct": 0.15,
+        "sell_fraction_of_position": 0.25
+      },
+      {
+        "gain_pct": 0.3,
+        "sell_fraction_of_position": 0.25
+      },
+      {
+        "gain_pct": 0.5,
+        "sell_fraction_of_position": 0.25
+      }
+    ],
+    "note": "Each tier fires once per holding period."
+  },
+  "conviction_trim": {
+    "enabled": true,
+    "overweight_trigger_pct": 0.25,
+    "min_overweight_conviction_cycles": 3,
+    "note": "Trim to target after consecutive non-high cycles above overweight_trigger_pct."
+  },
+  "sell_reentry_lock": {
+    "gain_close_max_trading_days": 10
+  },
+  "loss_limits": {
+    "daily_loss_limit_pct_of_account": 0.04,
+    "weekly_loss_limit_pct_of_account": 0.08
+  },
+  "wash_sale_avoidance": {
+    "enabled": true,
+    "lookback_window_days": 30,
+    "scope": "this_agent_account_only",
+    "note": "Other personal brokerage accounts are unrelated and intentionally not checked."
+  },
+  "entry_price_gap": {
+    "max_pct": 0.03
+  },
+  "entry_extension": {
+    "enabled": true,
+    "lookback_trading_days": 20,
+    "max_extension_pct": 0.1
+  },
+  "earnings_blackout": {
+    "enabled": true,
+    "blackout_trading_days": 5,
+    "applies_to_etfs": false
+  },
+  "early_exit_guard": {
+    "enabled": true,
+    "window_trading_days": 5
+  },
+  "order_rules": {
+    "_new": true,
+    "allowed_order_types": [
+      "market"
+    ],
+    "buys_must_use_dollar_amount": true,
+    "time_in_force": "gfd",
+    "regular_hours_only": true,
+    "allowed_order_window_et": [
+      "09:30",
+      "11:00"
+    ]
+  },
+  "paper_fills": {
+    "_new": true,
+    "buy_price_field": "ask",
+    "sell_price_field": "bid",
+    "settlement_trading_days": 1
+  },
+  "graduation": {
+    "_new": true,
+    "min_trading_days": 21,
+    "min_calendar_months": 1,
+    "max_rule_violations": 0,
+    "clean_run_window_trading_days": 10,
+    "min_vote_coverage_pct": 0.8
+  },
+  "control_book": {
+    "_new": true,
+    "enabled": true,
+    "fixed_conviction": "medium",
+    "thesis_exits": false
+  }
+}

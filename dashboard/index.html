@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paper Trader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600;650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Paper Trader <span id="modeBadge" class="badge paper">PAPER</span></h1>
+      <div class="meta" id="modeNote">Simulated fills</div>
+    </div>
+    <div class="meta">
+      <div>Updated <span id="updatedAt">—</span></div>
+      <div>Next <span id="nextRun">—</span></div>
+      <div>Unvoted <strong id="unvoted">0</strong></div>
+    </div>
+  </header>
+  <main>
+    <div id="banners"></div>
+
+    <section>
+      <h2>Scorecard</h2>
+      <div class="scorecards" id="scorecards"></div>
+    </section>
+
+    <section>
+      <h2>Equity</h2>
+      <div class="chart-wrap"><canvas id="equityChart" height="120"></canvas></div>
+    </section>
+
+    <section>
+      <h2>Today’s decisions</h2>
+      <div id="decisions"></div>
+    </section>
+
+    <section>
+      <h2>Open positions</h2>
+      <div id="positions"></div>
+    </section>
+
+    <section>
+      <h2>Sector exposure</h2>
+      <div id="sectors"></div>
+    </section>
+
+    <section>
+      <h2>Blocked trades</h2>
+      <div id="blocked"></div>
+    </section>
+
+    <section>
+      <h2>Recent trades</h2>
+      <div id="trades"></div>
+    </section>
+
+    <section>
+      <h2>Progress to going live</h2>
+      <ul class="check" id="graduation"></ul>
+    </section>
+
+    <section>
+      <h2>Signal results</h2>
+      <div id="signals"></div>
+    </section>
+  </main>
+</body>
+</html>
