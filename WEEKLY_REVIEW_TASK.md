@@ -1,6 +1,6 @@
 # Weekly review — Friday
 
-_Paper Trader. Spec: `TRADING_BOT_MASTER_SPEC.md` Section 13._
+_Claude Day Trader Agent. Spec: `TRADING_BOT_MASTER_SPEC.md` Section 13._
 
 **Schedule:** Friday 4:30pm America/Denver.
 

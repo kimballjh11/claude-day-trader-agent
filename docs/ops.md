@@ -6,9 +6,9 @@ Three Claude Code cloud routines are **active**. Do not create duplicates.
 
 | Name | When (America/Denver) | Prompt file |
 |---|---|---|
-| `paper-trader-phase-a` | Mon–Fri 3:30pm | `PHASE_A_TASK.md` |
-| `paper-trader-phase-b` | Mon–Fri 8:00am | `PHASE_B_TASK.md` |
-| `paper-trader-weekly` | Fri 4:30pm | `WEEKLY_REVIEW_TASK.md` |
+| `claude-day-trader-agent-phase-a` | Mon–Fri 3:30pm | `PHASE_A_TASK.md` |
+| `claude-day-trader-agent-phase-b` | Mon–Fri 8:00am | `PHASE_B_TASK.md` |
+| `claude-day-trader-agent-weekly` | Fri 4:30pm | `WEEKLY_REVIEW_TASK.md` |
 
 IDs and cloud MCP notes: `docs/verified.md`.
 

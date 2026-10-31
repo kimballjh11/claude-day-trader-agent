@@ -1,4 +1,4 @@
-# Paper Trader
+# Claude Day Trader Agent
 
 Paper-first trading robot for a separate Robinhood Agentic account. Spec: [`TRADING_BOT_MASTER_SPEC.md`](TRADING_BOT_MASTER_SPEC.md).
 

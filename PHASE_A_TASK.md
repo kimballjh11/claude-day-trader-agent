@@ -1,6 +1,6 @@
 # Phase A — Evening research (no orders)
 
-_Paper Trader. Replaces FriesTrader Phase A. Spec: `TRADING_BOT_MASTER_SPEC.md` Sections 7–8._
+_Claude Day Trader Agent. Replaces FriesTrader Phase A. Spec: `TRADING_BOT_MASTER_SPEC.md` Sections 7–8._
 
 **Schedule:** weekdays 3:30pm America/Denver.
 

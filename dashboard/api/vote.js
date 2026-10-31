@@ -32,7 +32,7 @@ async function githubPutVote(decisionId, vote, token, repo) {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
-      "User-Agent": "paper-trader-dashboard",
+      "User-Agent": "claude-day-trader-agent-dashboard",
     },
   });
   if (getRes.ok) {
@@ -49,7 +49,7 @@ async function githubPutVote(decisionId, vote, token, repo) {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
       "Content-Type": "application/json",
-      "User-Agent": "paper-trader-dashboard",
+      "User-Agent": "claude-day-trader-agent-dashboard",
     },
     body: JSON.stringify({
       message: `vote: ${decisionId} -> ${vote}`,

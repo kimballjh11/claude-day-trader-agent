@@ -36,9 +36,9 @@ Record results of every VERIFY item from the master spec (Section 17) here befor
 
 | Name | Cron UTC (winter) | Denver after Nov 1 | ID |
 |---|---|---|---|
-| paper-trader-phase-a | `30 22 * * 1-5` | Mon–Fri 3:30pm MST | `<redacted-routine-id>` |
-| paper-trader-phase-b | `0 15 * * 1-5` | Mon–Fri 8:00am MST | `<redacted-routine-id>` |
-| paper-trader-weekly | `30 23 * * 5` | Fri 4:30pm MST | `<redacted-routine-id>` |
+| claude-day-trader-agent-phase-a | `30 22 * * 1-5` | Mon–Fri 3:30pm MST | `<redacted-routine-id>` |
+| claude-day-trader-agent-phase-b | `0 15 * * 1-5` | Mon–Fri 8:00am MST | `<redacted-routine-id>` |
+| claude-day-trader-agent-weekly | `30 23 * * 5` | Fri 4:30pm MST | `<redacted-routine-id>` |
 
 **DST:** winter UTC applied (2026-10-21); ~1h late in MDT until Nov 1 is OK for paper.
 

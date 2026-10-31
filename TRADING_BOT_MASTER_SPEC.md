@@ -199,7 +199,7 @@ All code reads and writes portfolios through one module, `scripts/book.py`, whic
 ## 5. Repository structure
 
 ```
-paper-trader/                         private GitHub repo
+claude-day-trader-agent/                         private GitHub repo
 ├── LICENSE                             FriesTrader MIT notice (kept)
 ├── NOTICE.md                           attribution for every copied file (Section 19)
 ├── README.md                           the operator's operating notes: how to read the dashboard, how to change mode
@@ -894,7 +894,7 @@ The dashboard renders `state.json` and nothing else. The only visual difference 
 
 ### 12.4 Layout (top to bottom)
 
-1. **Header:** "Paper Trader", PAPER or LIVE badge, last updated time, next scheduled run.
+1. **Header:** "Claude Day Trader Agent", PAPER or LIVE badge, last updated time, next scheduled run.
 2. **Error banner** (only if `errors` is non-empty or a run is missed): red for errors, amber for warnings, each with plain-English text and what to do. Examples in 12.6.
 3. **Scorecard row:** three tiles (Claude book, Control book, SPY) with equity, day %, week %, since inception %, and a halt badge if halted.
 4. **Equity chart:** three lines, all starting at $1,000. Time axis is runs. Hover shows values.

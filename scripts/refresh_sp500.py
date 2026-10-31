@@ -18,7 +18,7 @@ DEFAULT_URL = (
 
 def fetch_csv(url: str) -> str:
     req = urllib.request.Request(
-        url, headers={"User-Agent": "paper-trader-refresh_sp500/1.0"}
+        url, headers={"User-Agent": "claude-day-trader-agent-refresh_sp500/1.0"}
     )
     with urllib.request.urlopen(req, timeout=60) as resp:
         return resp.read().decode("utf-8")

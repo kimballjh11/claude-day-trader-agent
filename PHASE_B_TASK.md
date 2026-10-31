@@ -1,6 +1,6 @@
 # Phase B — Morning trading
 
-_Paper Trader. Replaces FriesTrader Phase B. Spec: `TRADING_BOT_MASTER_SPEC.md` Sections 7, 9–11._
+_Claude Day Trader Agent. Replaces FriesTrader Phase B. Spec: `TRADING_BOT_MASTER_SPEC.md` Sections 7, 9–11._
 
 **Schedule:** weekdays 8:00am America/Denver (10:00am ET).
 

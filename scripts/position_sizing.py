@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Part of FriesTrader (https://github.com/YizhiSong/FriesTrader)
 # Copyright (c) 2026 Yizhi Song, MIT License -- see LICENSE
-# Modified for Paper Trader: tiers from config, max_order_usd, session/sector caps (Section 7.6).
+# Modified for Claude Day Trader Agent: tiers from config, max_order_usd, session/sector caps (Section 7.6).
 """Size buy/add candidates in priority order. Reads JSON array from stdin."""
 from __future__ import annotations
 

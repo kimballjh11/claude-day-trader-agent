@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Part of FriesTrader (https://github.com/YizhiSong/FriesTrader)
 # Copyright (c) 2026 Yizhi Song, MIT License -- see LICENSE
-# Modified for Paper Trader: mom_12_1 descending, then fewer risk_flags (Section 7.5).
+# Modified for Claude Day Trader Agent: mom_12_1 descending, then fewer risk_flags (Section 7.5).
 """Sort buy/add candidates: conviction, then mom_12_1 desc, then fewer risk_flags."""
 import json
 import sys
